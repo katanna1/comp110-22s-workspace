@@ -10,6 +10,9 @@ if guess == SECRET:
     print("Have a wonderful day!!!")
 else: 
     print("Sorry, you are wrong :(")
-    print("Try running the program again.")
-
+    if guess > SECRET:
+        print("You guessed too high!")
+    else:
+        print("You guessed too low!")
+        
 print("Game over.")
