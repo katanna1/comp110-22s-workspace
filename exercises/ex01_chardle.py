@@ -1,4 +1,4 @@
-"""Fun Wordle-like Program :)"""
+"""Fun Wordle-like Program :)."""
 
 __author__ = "730479768"
 
@@ -10,7 +10,6 @@ letter: str = input("Enter a single character: ")
 if len(letter) != 1:
     print("Error: Character must be a single character.")
     exit()
-instance: int = 0
 
 print("Searching for " + letter + " in " + word)
 
