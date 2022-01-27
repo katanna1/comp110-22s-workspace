@@ -8,11 +8,9 @@ response: int = randint(0, 3)
 
 if response == 0:
     print("Yes, def!")
+elif response == 1:
+    print("Looking hopeful!")
+elif response == 2:
+    print("Ask again later.")
 else:
-    if response == 1:
-        print("Looking hopeful!")
-    else:
-        if response == 2:
-            print("Ask again later.")
-        else:
-            print("No way. Not a chance.")
+    print("No way. Not a chance.")
