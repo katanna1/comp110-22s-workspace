@@ -20,6 +20,7 @@ def contains_char(guess: str, letter: str) -> bool:
 
 
 def emojified(guess: str, secret: str) -> str:
+    """Shows right and wrong letters through emojis."""
     assert len(guess) == len(secret)
     word_emojis: str = ""
     i: int = 0
@@ -35,3 +36,31 @@ def emojified(guess: str, secret: str) -> str:
     return word_emojis
 
 
+def input_guess(expected_length: int) -> str:
+    """Asks user for input."""
+    user_guess: str = input(f"Enter a {expected_length} word: ")
+    while len(user_guess) != expected_length:
+        user_guess = input(f"That wasn't {expected_length} chars! Try again: ")
+    return user_guess
+
+
+def main() -> None:
+    """The entrypoint of the program and main game loop."""
+    secret_word: str = "codes"
+    i: int = 0
+    while i < 6:
+        j: int = i + 1
+        print(f"=== Turn {j}/6 ===")
+        guess: str = input_guess(len(secret_word))
+        print(emojified(guess, secret_word))
+        if guess == secret_word:
+            print(f"You won in {j}/6 turns!")
+            exit()
+        else:
+            if i == 5:
+                print("X/6 - Sorry, try again tomorrow!")
+            i = i + 1
+
+
+if __name__ == "__main__":
+    main()
