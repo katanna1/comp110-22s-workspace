@@ -39,29 +39,27 @@ def emojified(guess: str, secret: str) -> str:
 def input_guess(expected_length: int) -> str:
     """Asks user for input."""
     user_guess: str = input(f"Enter a {expected_length} word: ")
-    if len(user_guess) == expected_length:
-        return user_guess
-    else:
-        while len(user_guess) != expected_length:
-            user_guess = input(f"That wasn't {expected_length} chars! Try again: ")
+    while len(user_guess) != expected_length:
+        user_guess = input(f"That wasn't {expected_length} chars! Try again: ")
     return user_guess
 
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     secret_word: str = "codes"
-    i: int = 0
-    j: int = i + 1
-    guess: str = ""
-    while i < 6 and guess != secret_word:
-        print(f"=== Turn {j}/6 ===")
-        guess = input_guess(len(secret_word))
+    turns: int = 1
+    not_won: bool = True
+    while turns < 7:
+        print(f"=== Turn {turns}/6 ===")
+        guess: str = input_guess(len(secret_word))
         print(emojified(guess, secret_word))
-        i = i + 1
-        j = j + 1
-    if guess == secret_word:
-        print(f"You won in {j}/6 turns!")
-    else:
+        if guess == secret_word:
+            print(f"You won in {turns}/6 turns!")
+            turns = 7
+            not_won = False
+        else:
+            turns = turns + 1
+    if not_won is True:
         print("X/6 - Sorry, try again tomorrow!")
 
 
