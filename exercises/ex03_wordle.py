@@ -36,8 +36,9 @@ def emojified(guess: str, secret: str) -> str:
     return word_emojis
 
 
-def input_guess(expected_length: int) -> str:
+def input_guess(expected_length: int, secret: str) -> str:
     """Asks user for input."""
+    expected_length = len(secret)
     user_guess: str = input(f"Enter a {expected_length} word: ")
     while len(user_guess) != expected_length:
         user_guess = input(f"That wasn't {expected_length} chars! Try again: ")
@@ -51,7 +52,7 @@ def main() -> None:
     while i < 6:
         j: int = i + 1
         print(f"=== Turn {j}/6 ===")
-        guess: str = input_guess(len(secret_word))
+        guess: str = input_guess(len(secret_word), secret_word)
         print(emojified(guess, secret_word))
         if guess == secret_word:
             print(f"You won in {j}/6 turns!")
