@@ -7,11 +7,11 @@ def only_evens(a_list: list[int]) -> list[int]:
     """Returns even integers in a list format."""
     i: int = 0
     evens_list: list[int] = []
-    while i < len(evens_list):
-        if evens_list[i] % 2 == 0:
-            evens_list.append(evens_list[i])
+    while i < len(a_list):
+        if a_list[i] % 2 == 0:
+            evens_list.append(a_list[i])
         i = i + 1
-    return (evens_list)
+    return(evens_list)
 
 
 def sub(a_list: list[int], start_index: int, end_index: int) -> list[int]:
