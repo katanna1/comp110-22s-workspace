@@ -14,11 +14,33 @@ def only_evens(a_list: list[int]) -> list[int]:
     return (evens_list)
 
 
-# def sub(a_list: list[int], start_index: int, end_index: int) -> str:
-#     sub_list: str = ""
-#     if start_index < 0:
-#         sub_list = sub_list + "a_list[0]"
-#     if end_index > len(a_list):
-#         last_index: int = len(a_list) - 1
-#     if len(a_list) == 0 or start_index > len(a_list) or end_index <= 0:
-#         return sub_list
+def sub(a_list: list[int], start_index: int, end_index: int) -> list[int]:
+    """Creates a seperate set of integers from the orignal."""
+    subset: list[int] = []
+    if len(a_list) == 0:
+        return subset
+    if start_index >= len(a_list):
+        return subset
+    if end_index <= 0:
+        return subset
+    if start_index < 0:
+        subset.append(a_list[0])
+    else:
+        subset.append(a_list[start_index])
+    if end_index > len(a_list):
+        subset.append(a_list[len(a_list) - 1])
+    else:
+        subset.append(a_list[end_index - 1])
+    return subset
+
+
+def concat(a: list[int], b: list[int]) -> list[int]:
+    """This function creates a new list with integers from both lists."""
+    together: list[int] = []
+    together = a
+    i: int = 0
+    while i < len(b):
+        num_b: int = b[i]
+        together.append(num_b)
+        i = i + 1
+    return together
