@@ -31,7 +31,7 @@ def favorite_color(a: dict[str, str]) -> str:
             color_count[a[key]] = 1
     for key in color_count:
         if color_num < color_count[key]:
-            color_num = color_count[a[key]]
+            color_num = color_count[key]
             color = key
     return color
 
@@ -45,7 +45,7 @@ def count(a: list[str]) -> dict[str, int]:
             count1[a[i]] += 1
         else:
             count1[a[i]] = 1
-    i = i + 1
+        i = i + 1
     return count1
 
 
