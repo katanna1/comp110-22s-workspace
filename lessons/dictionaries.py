@@ -22,7 +22,7 @@ print(f"UNC has {schools['UNC']} students")
 # by its key.
 schools.pop("Duke")
 
-# Tes for existence of a key
+# Test for existence of a key
 if "Duke" in schools:
     print("Found the key 'Duke' in schools")
 else:
