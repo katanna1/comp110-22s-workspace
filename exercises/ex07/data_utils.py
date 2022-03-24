@@ -7,7 +7,7 @@ from csv import DictReader
 
 
 def read_csv_rows(filename: str) -> list[dict[str, str]]:
-    """Read the rows of a CSV into a 'table"""
+    """Read the rows of a CSV into a 'table."""
     result: list[dict[str, str]] = []
 
     # Open a handle to the data file
@@ -53,14 +53,15 @@ def head(table: dict[str, list[str]], rows: int) -> dict[str, list[str]]:
         values: list[str] = []
         i: int = 0
         while i < rows:
-            values.append(table[column][i])
+            if i < len(table):
+                values.append(table[column][i])
             i = i + 1
         result[column] = values
     return result
 
 
 def select(table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
-    """Produce a column-oriented table with a specefic subset of the original columns"""
+    """Produce a column-oriented table with a specefic subset of the original columns."""
     result: dict[str, list[str]] = {}
     for column in names:
         result[column] = table[column]
